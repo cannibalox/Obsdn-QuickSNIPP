@@ -42,14 +42,14 @@ It relies on the following libs :
 
 the required ahk files are provided in \_includes. make sure to update the correct path in the CONFIG section.
 
-Before first use, edit the .ahk file with a text editor to change the default configuration :
+**Before first use, edit the .ahk file with a text editor to change the default configuration**
 search for 'CONFIG' and modify :
-* the path to the includes lib
+* the path to the `include` libs
 * the location to save the snippets in your obisidan vault
 * optionally, tweak the naming convention for the generated snippets
 * optionally, modify the macro shortcuts
 
-# the script is free to share and modify. Please reshare/make a pull request if you improve it. 
+#### the script is free to share and modify. Please reshare/make a pull request if you improve it. 
 
 
 

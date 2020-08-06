@@ -19,6 +19,7 @@ SendMode Input              	; Recommended for new scripts due to its superior s
 #Include C:\_ppApps\_tools\autohotkey_L\_includes\createFormData.ahk 	; by tmplinshi mod by SKAN https://www.autohotkey.com/boards/viewtopic.php?p=85687#p85687
 Menu, Tray, Icon, hpx1_64.png
 
+;==============================================================================
 ;======= CONFIG : DEFINE YOUR SAVE FOLDER BELOW ===============================
 ; First, create a folder under your obsidian vault to store the snippets. 
 ; Then point to that folder. The script will create subfolders based on the 
@@ -70,8 +71,9 @@ OnMessage(0x200, "WM_MOUSEMOVE") ; tooltips on hover buttons
 return
 
 
-
-;================== CONFIG : DEFINE SHORTCUTS===================================
+;============================================================================
+;================== CONFIG : DEFINE SHORTCUTS================================
+;============================================================================
 
 ^+c::		 	 ; CTRL+SHIFT+C to create clone file+link (AutoSnipp)
 	Clipboard :=""	 ; Clear the clipboard
@@ -103,7 +105,7 @@ return
 
 ^F9::			; CTRL F9: convert URL to md file 
 	Clipboard :=""
-	send !d
+	send !d		 ; send ALT D select urlbar
 	send ^c		 ; copy selection
 	ClipWait	 ; wait for the clipboard to contain data.
 	gosub UrlPageSave
@@ -124,14 +126,6 @@ GetHTML(in)	{
 	 in:=RegExReplace(in,"iUs)^.*<htm","<htm") ; strip all before <htm
 	 in:=StrReplace(in,"<!--StartFragment-->")
 	 in:=StrReplace(in,"<!--EndFragment-->")
-
-	 ; if have problems with Ã, Ã¨ try to uncomment these lines below 
-	 ; we need to go from UTF-8 bytes to Unicode text
-
-	 ;clipsize := StrPut(in, "CP0")
-	 ;VarSetCapacity(cliptemp, clipsize)
-	 ;StrPut(in, &cliptemp, "CP0")
-	 ;return StrGet(&cliptemp, "UTF-8")
 	 return in
 }
 
@@ -180,9 +174,9 @@ GetTitle() {
 
 ; save md files in the vault\snipdir
 SaveSnipp(Content,Snipdir,Title) {
-	; ===== create folder vault\snippets\yyyyMM ======
+	; ===== CONFIG : create folder vault\snippets\yyyyMM ======
 	FormatTime, thismonth,, yyyyMM
-	FileID = xx_%A_Now%-%A_Msec%_%Title%
+	FileID = xx_%A_Now%-%A_Msec%_%Title%   ; CONFIG naming convention
 	IfNotExist, %Snipdir%\%thismonth%\
 		FileCreateDir, %Snipdir%\%thismonth%\
 
@@ -204,7 +198,6 @@ SaveSnipp(Content,Snipdir,Title) {
 	Clipboard = ![[%FileID%]]	
 	return FileID
 }
-
 
 
 ;====================== UriEncode/UriDecode functions by imGuest ====================================	
@@ -255,10 +248,6 @@ StrPutVar(Str, ByRef Var, Enc = "")
 	VarSetCapacity(Var, Len, 0)
 	Return, StrPut(Str, &Var, Enc)
 }
-
-
-
-
 
 
 ;================= GOSUBS ============================================================
@@ -334,16 +323,8 @@ return
 ;======= convert current web page to a markdown file in the vault and get transclusion link ========
 
 UrlPageSave:
-	;WinGetActiveTitle, Title	
-	;MsgBox % Title
-	;================= winclip clipboard==========================================
-	;ClipSource :=GetSource(WinClip.GetHTML())	;retrieves source page of selection
-    ;StringTrimRight, ClipSource, ClipSource, 2  ;remove the linebreak
-	;Clipboard :=""								
-	;WinClip.Clear()
 
 	Clipboard := UriEncode(Clipboard)
-
 	goGET := "http://fuckyeahmarkdown.com/go/?u=" . Clipboard
 
 	;========= GET request to http://fuckyeahmarkdown.com to convert the HTML into Markdown =======================
@@ -352,12 +333,11 @@ UrlPageSave:
         whr.Open("GET", goGET, true) 	; make GET request to markdownifier API
         whr.Send() 										
         whr.WaitForResponse()
-        raw:= whr.ResponseText										; store the returned data in raw
-        
+        raw:= whr.ResponseText										; store the returned data in raw   
     } catch e {
         MsgBox 64, %A_ScriptName% - Row %A_LineNumber%, % e.message	; if error return error message from server
     }
-	;MsgBox % raw
+
 	;============== fill clipboard with source + content =========================
     Clipboard := raw
 	Title := GetTitle()	
@@ -373,17 +353,16 @@ return
 
 AutoSnipp:
   
-    ClipData := WinClip.GetText()               ; get text
+    ClipData := WinClip.GetText()               	; get text
 	Sleep 200	
-    ;MsgBox % ClipData	
-    Title := GetTitle()							; retrieves Active Window Title
-	FileID := SaveSnipp(Clipboard,Snipdir,Title)		; save the snippet as a file and create a link
+    Title := GetTitle()								; retrieves Active Window Title
+	FileID := SaveSnipp(Clipboard,Snipdir,Title)	; save the snippet as a file and create a link
 	MsgBox saved selection in \snippets\%thismonth%\%FileID%.md`nTransclusion link ready to be pasted ; remove this line for faster operation
 
 return
 
 
-;=========================GUI controls functions================================
+;=========================GUI controls functions===============================
 
 HelpAbout:
 	Gui, About:+owner1 -Caption ; Make the main window (Gui #1) the owner of the "about box".
@@ -441,11 +420,6 @@ GuiSize:
 	GuiControl, Move, MyEdit, % "W" . (A_GuiWidth - 20) . " H" . (A_GuiHeight - 30)
 	GuiControl, Move, Button1, % "y" . (A_GuiHeight - 45)
 Return
-
-GuiContextMenu:
-	;If A_GuiControl <> MyEdit ; Display the menu only for clicks inside the ListView.
- 	Menu, MMenu, Show, %A_GuiX%, %A_GuiY%
-Return 
 
 MainMenu:
 	Menu, MMenu, Show

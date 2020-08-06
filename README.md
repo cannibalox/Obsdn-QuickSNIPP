@@ -3,7 +3,9 @@ ahk script for Obsidian.md to make transclusions from text blocks, save web snip
 
 use AUTOHOTKEY UNICODE 
 
-This script is a replacement for Obsdn-AutoSnipp.ahk
+This script is a replacement for Obsdn-AutoSnipp.ahk with enhanced features
+
+# DESCRIPTION
 
 ## WebSNIPP WebClipper
 
@@ -17,7 +19,7 @@ This script is a replacement for Obsdn-AutoSnipp.ahk
  ----
   ## QuickSNIPP Scratchpad
 
-`CAPS LOCK x2` display a scratchpad floating window to write quick notes. Save the notes as snippets and get the transclusion link.
+`CAPS LOCK x2` display a scratchpad floating window to write quick notes. Save the notes as snippets and get the transclusion link. Hide the scratchpad with `ESC` or click on the `X` button. 
 
 ----
 
@@ -31,3 +33,25 @@ This script is a replacement for Obsdn-AutoSnipp.ahk
 
 ----
 
+# CONFIGURATION / INSTALLATION
+
+this script requires [**AutoHotkey UNICODE**](https://www.autohotkey.com/) to be installed. 
+It relies on the following libs :
+* Winclip by Deo http://www.apathysoftworks.com/ahk/index.html with the UTF8 mod from https://www.autohotkey.com/boards/viewtopic.php?f=6&t=29314&start=20#topahk%20strput
+* CreateFormData.ahk 	by tmplinshi + mod by SKAN https://www.autohotkey.com/boards/viewtopic.php?p=85687#p85687
+
+the required ahk files are provided in \_includes. make sure to update the correct path in the CONFIG section.
+
+Before first use, edit the .ahk file with a text editor to change the default configuration :
+search for 'CONFIG' and modify :
+* the path to the includes lib
+* the location to save the snippets in your obisidan vault
+* optionally, tweak the naming convention for the generated snippets
+* optionally, modify the macro shortcuts
+
+# the script is free to share and modify. Please reshare/make a pull request if you improve it. 
+
+
+
+
+ 

@@ -1,5 +1,5 @@
 # Obsdn-QuickSNIPP
-an all in one ahk script for Obsidian.md to save and reuse text, web pages, etc...
+ahk script for Obsidian.md to make transclusions from text blocks, save web snippets and take quick notes
 
 use AUTOHOTKEY UNICODE 
 

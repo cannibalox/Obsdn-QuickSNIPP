@@ -14,6 +14,7 @@
 #Persistent     			 	; Keeps a script permanently running (until user closes it or ExitApp Command).
 SendMode Input              	; Recommended for new scripts due to its superior speed and reliability.
 
+;======= CONFIG : LOCATION OF INCLUDES ========================================
 #Include C:\_ppApps\_tools\autohotkey_L\_includes\WinClipAPI.ahk 		; [Class] WinClip by Deo http://www.apathysoftworks.com/ahk/index.html
 #Include C:\_ppApps\_tools\autohotkey_L\_includes\WinClip.ahk
 #Include C:\_ppApps\_tools\autohotkey_L\_includes\createFormData.ahk 	; by tmplinshi mod by SKAN https://www.autohotkey.com/boards/viewtopic.php?p=85687#p85687

@@ -50,6 +50,13 @@ search for 'CONFIG' and modify :
 #### the script is free to share and modify. Please reshare/make a pull request if you improve it. 
 
 
+# SCREENSHOTS
 
+transcluder demo
+![obsdn-autosnipp-demo.gif](https://github.com/cannibalox/Obsdn-Autosnipp/blob/master/obsdn-autosnipp-demo.gif)
 
- 
+![obsdn-quicksnipp-scratchpad.png](https://github.com/cannibalox/Obsdn-QuickSNIPP/blob/master/obsdn-quicksnipp-scratchpad.png)
+
+![Obsidian-autosnipp.png](https://github.com/cannibalox/Obsdn-Autosnipp/blob/master/Obsidian-autosnipp.png)
+
+![obsdn-autosnipp_firefox.png](https://github.com/cannibalox/Obsdn-Autosnipp/blob/master/obsdn-autosnipp_firefox.png)

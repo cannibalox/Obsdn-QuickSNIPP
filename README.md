@@ -60,3 +60,9 @@ transcluder demo
 ![Obsidian-autosnipp.png](https://github.com/cannibalox/Obsdn-Autosnipp/blob/master/Obsidian-autosnipp.png)
 
 ![obsdn-autosnipp_firefox.png](https://github.com/cannibalox/Obsdn-Autosnipp/blob/master/obsdn-autosnipp_firefox.png)
+
+# VIDEO DEMO
+
+https://filedn.com/locqGc5NIUyfrWR1S0M3dRz/videos/obsdn-quicksnipp/obsdn-quicksnipp-demo.mp4
+
+https://filedn.com/locqGc5NIUyfrWR1S0M3dRz/videos/obsdn-quicksnipp/obsdn-quicksnipp-scratchpad.mp4

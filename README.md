@@ -16,12 +16,11 @@ This script is a replacement for Obsdn-AutoSnipp.ahk with enhanced features
 
  `CTRL F9` save current webpage as a md file via the fuckyeahmarkdown.com API, and get the transclusion link in obsidian format. It's slow and sends keyboard shortcuts, so it's not highly reliable... Tested on FF, Chrome,  Brave , Maxthon
  
- ----
+
   ## QuickSNIPP Scratchpad
 
 `CAPS LOCK x2` display a scratchpad floating window to write quick notes. Save the notes as snippets and get the transclusion link. Hide the scratchpad with `ESC` or click on the `X` button. 
 
-----
 
 ## AutoSNIPP Transcluder
 
@@ -31,7 +30,6 @@ This script is a replacement for Obsdn-AutoSnipp.ahk with enhanced features
  
  since the new block is a copy, it can be modified independently, without modyfing the original paragraph
 
-----
 
 # CONFIGURATION / INSTALLATION
 
